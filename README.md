@@ -1,16 +1,16 @@
 # Pi-Kiosk
 Pi-Kiosk è una soluzione basata su raspberry pi, che consente di eseguire lo slideshow di una cartella di immagini su un televisore.
 
-Le immagini vengono prevede l'utilizzo di btsync per l'aggiornamento delle immagini. Grazie a btsync è possibile aggiungere o rimuovere le immagini, utilizzando un computer o uno smartphone.
+Pi-Kiosk prevede l'utilizzo di btsync per l'aggiornamento delle immagini. Grazie a btsync è possibile utilizzare un computer desktop o uno smartphone per tenere aggiornata la presentazione.
 
-pi-kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo standard cec dell'HDMI presente in quasi tutti i televisori di ultima generazione.
+Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo standard cec dell'HDMI presente ormai in quasi tutti i televisori di ultima generazione.
 
 1. Materiale occorrente
 ---
-* n. 1 [Raspberry Pi](http://goo.gl/MybLy9)
-* n. 1 [Case](http://goo.gl/Znz5zb)
-* n. 1 [Scheda di memoria](http://goo.gl/3OPHrh)
-* n. 1 [Adattatore USB WiFi nano](http://goo.gl/O1TmFa)
+* n.1 [Raspberry Pi](http://goo.gl/MybLy9)
+* n.1 [Case](http://goo.gl/Znz5zb)
+* n.1 [Scheda di memoria](http://goo.gl/3OPHrh)
+* n.1 [Adattatore USB WiFi nano](http://goo.gl/O1TmFa)
 * n.1 [Alimentatore 2A per Raspberry](http://goo.gl/jWQpXN)
 * n.1 Cavo HDMI
 * n.1 Televisore con HDMI cec
@@ -21,20 +21,19 @@ Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia d
 
 Se nel tuo computer hai Linux, usa questa procedura per installare CFS-OS nella SD.
 
-* Apri una finestra terminale
-* Da root, inserisci l'SD nel card reader del computer ed esegui questo comando:
+* Aprire una finestra terminal e da root inserire l'SD nel card reader del computer. Eseguire questo comando:
 ```bash
 # df -h
 ```
-*  Esegui l'umount della scheda: (sdb1 è solo un esempio, il nome potrebbe essere diverso)
+*  Eseguire l'umount della scheda: (sdb1 è solo un esempio, il nome potrebbe essere diverso)
 ```bash
 # umount /dev/sdb1
 ```
-* Scrivi l'immagine nella SD (Attendi a quello che fate)
+* Scrivere l'immagine nella SD
 ```bash
 # dd if=./immagine.img of=/dev/sdX bs=4k
 ```
-* Eseguito questo comando per essere sicuri che tutta la cache sia scritta nell'SD
+* Eseguire questo comando per essere sicuri che tutta la cache sia scritta nell'SD
 ```bash
 # sync
 ```
@@ -66,7 +65,7 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 @xset s noblank
 @/mnt/pi-kiosk/bin/slideshow.sh
 ```
-Nel suddetto file, commentare la riga che contiene xscreensaver e aggiugnere la riga in fondo per l'esecuzione automatica di pi-kiosk.
+Nel suddetto file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
 5. Installazione di btsync
 ---
