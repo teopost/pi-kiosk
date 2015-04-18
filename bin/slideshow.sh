@@ -3,7 +3,7 @@
 export DISPLAY=:0
 bgproc=0
 delay=6
-media_folder='/mnt/uie-kiosk/slides'
+media_folder='/mnt/pi-kiosk/slides'
 
 trap ctrl_c INT
 
