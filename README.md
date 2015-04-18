@@ -5,7 +5,7 @@ Le immagini vengono prevede l'utilizzo di btsync per l'aggiornamento delle immag
 
 pi-kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo standard cec dell'HDMI presente in quasi tutti i televisori di ultima generazione.
 
-Materiale occorrente
+1. Materiale occorrente
 ---
 * n. 1 [Raspberry Pi](http://goo.gl/MybLy9)
 * n. 1 [Case](http://goo.gl/Znz5zb)
@@ -15,7 +15,7 @@ Materiale occorrente
 * n.1 Cavo HDMI
 * n.1 Televisore con HDMI cec
 
-1.Preparare la Raspberry
+2. Preparare la Raspberry
 ---
 Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia di guide su internet su come farlo. Ecco la centunesima:
 
@@ -39,7 +39,7 @@ Se nel tuo computer hai Linux, usa questa procedura per installare CFS-OS nella 
 # sync
 ```
 
-2.Installare pi-kiosk
+3. Installare pi-kiosk
 ---
 * Installare il programma di visualizzazione immagini
 ```bash
@@ -54,7 +54,7 @@ $ cd /mnt
 $ git clone https://github.com/teopost/pi-kiosk
 ```
 
-3.Configurare il software
+4. Configurare il software
 ---
 Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi.
 ```bash
@@ -68,11 +68,11 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 ```
 Nel suddetto file, commentare la riga che contiene xscreensaver e aggiugnere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
-4.Installazione di btsync
+5. Installazione di btsync
 ---
 Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviamente la versione per ARM.
 
-4.Spegnimento automatico
+6. Spegnimento automatico
 ---
 Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root
 ```bash
@@ -87,7 +87,7 @@ Per spegnere e riaccendere automaticamente il televisore occorre installare la l
 # make install
 # ldconfig
 ```
-5.Pianificare lo spegnimento
+7. Pianificare lo spegnimento
 --
 Nel crontab dell'utente pi, incollare le seguenti righe:
 ```bash
