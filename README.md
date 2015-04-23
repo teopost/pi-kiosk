@@ -100,3 +100,16 @@ Nel crontab dell'utente pi, incollare le seguenti righe:
 54 23 * * * /mnt/pi-kiosk/bin/turntv.sh off
 30  7 * * * /mnt/pi-kiosk/bin/turntv.sh on && sleep 3 && /mnt/pi-kiosk/bin/turntv.sh input
 ```
+
+Riferimenti
+---
+* http://raspberry-at-home.com/control-rpi-with-tv-remote/
+* http://raspberrypi.stackexchange.com/questions/8698/how-can-my-raspberry-pi-turn-on-off-my-samsung-tv
+
+```bash
+# lista comandi
+echo h | cec-client -s -d 1
+
+# Attiva la posta cec come attiva
+echo "as" | cec-client -s
+```
