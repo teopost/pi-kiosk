@@ -59,11 +59,11 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 ```bash
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
-# @xscreensaver -no-splash
+# @xscreensaver -no-splash           # <-- COMMENTARE
 @xset s off
 @xset -dpms
 @xset s noblank
-@/mnt/pi-kiosk/bin/slideshow.sh
+@/mnt/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
 Nel suddetto file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
