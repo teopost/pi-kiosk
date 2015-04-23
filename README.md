@@ -65,7 +65,7 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 @xset s noblank
 @/mnt/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
-Nel suddetto file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
+Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
 5. Installazione di btsync
 ---
