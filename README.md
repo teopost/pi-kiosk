@@ -17,9 +17,7 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 
 2. Preparare la Raspberry
 ---
-Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia di guide su internet su come farlo. Ecco la centunesima:
-
-Se nel tuo computer hai Linux, usa questa procedura per installare CFS-OS nella SD.
+Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
 
 * Aprire una finestra terminal e da root inserire l'SD nel card reader del computer. Eseguire questo comando:
 ```bash
