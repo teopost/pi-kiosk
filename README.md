@@ -108,6 +108,9 @@ Riferimenti
 # lista comandi
 echo h | cec-client -s -d 1
 
-# Attiva la posta cec come attiva
+# Attiva la porta cec come attiva
 echo "as" | cec-client -s
+
 ```
+
+* http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
