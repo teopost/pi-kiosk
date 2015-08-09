@@ -42,9 +42,9 @@ Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia d
 ```bash
 $ sudo apt-get install feh
 ```
-* Collegarsi in ssh sulla rasp e posizionarsi su /mnt
+* Collegarsi in ssh sulla rasp e posizionarsi nell home
 ```bash
-$ cd /mnt
+$ cd
 ```
 * Scaricare il software
 ```bash
@@ -53,7 +53,19 @@ $ git clone https://github.com/teopost/pi-kiosk
 
 4. Configurare il software
 ---
-Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi.
+
+Rendere eseguibili gli script:
+
+```bash
+chmod 777 ./pi-kiosk/bin/*.sh
+```
+
+Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi. Quindi:
+
+```bash
+sudo vi /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
 ```bash
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
@@ -61,7 +73,7 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 @xset s off
 @xset -dpms
 @xset s noblank
-@/mnt/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
+@/home/pi/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
 Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
