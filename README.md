@@ -40,7 +40,7 @@ Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia d
 ---
 * Installare il programma di visualizzazione immagini
 ```bash
-$ sudo apt-get install feh
+$ sudo apt-get install feh unclutter
 ```
 * Collegarsi in ssh sulla rasp e posizionarsi nell home
 ```bash
@@ -49,6 +49,15 @@ $ cd
 * Scaricare il software
 ```bash
 $ git clone https://github.com/teopost/pi-kiosk
+```
+3.5 Aggiornare il software
+
+```bash
+$ sudo apt-get dist-upgrade
+$ sudo rpi-update
+$ sudo apt-get remove mathematica* sonic-pi wolfram*
+$ rm python_games
+
 ```
 
 4. Configurare il software
@@ -85,16 +94,7 @@ Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviament
 ---
 Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root
 ```bash
-# apt-get instal cec-client
-# apt-get -y install udev libudev-dev autoconf automake libtool gcc liblockdev1
-# git clone https://github.com/Pulse-Eight/libcec
-# cd libcec/
-# ./bootstrap
-# ./configure --with-rpi-include-path=/opt/vc/include --with-rpi-lib-path=/opt/vc/lib --enable-rpi
-# cec-client
-# make
-# make install
-# ldconfig
+# apt-get instal cec-utils
 ```
 7. Pianificare lo spegnimento
 --
