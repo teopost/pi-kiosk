@@ -40,20 +40,41 @@ Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia d
 ---
 * Installare il programma di visualizzazione immagini
 ```bash
-$ sudo apt-get install feh
+$ sudo apt-get install feh unclutter
 ```
-* Collegarsi in ssh sulla rasp e posizionarsi su /mnt
+* Collegarsi in ssh sulla rasp e posizionarsi nell home
 ```bash
-$ cd /mnt
+$ cd
 ```
 * Scaricare il software
 ```bash
 $ git clone https://github.com/teopost/pi-kiosk
 ```
+3.5 Aggiornare il software
+
+```bash
+$ sudo apt-get dist-upgrade
+$ sudo rpi-update
+$ sudo apt-get remove mathematica* sonic-pi wolfram*
+$ rm python_games
+
+```
 
 4. Configurare il software
 ---
-Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi.
+
+Rendere eseguibili gli script:
+
+```bash
+chmod 777 ./pi-kiosk/bin/*.sh
+```
+
+Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi. Quindi:
+
+```bash
+sudo vi /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
 ```bash
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
@@ -61,7 +82,7 @@ Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg
 @xset s off
 @xset -dpms
 @xset s noblank
-@/mnt/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
+@/home/pi/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
 Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
@@ -73,16 +94,7 @@ Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviament
 ---
 Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root
 ```bash
-# apt-get instal cec-client
-# apt-get -y install udev libudev-dev autoconf automake libtool gcc liblockdev1
-# git clone https://github.com/Pulse-Eight/libcec
-# cd libcec/
-# ./bootstrap
-# ./configure --with-rpi-include-path=/opt/vc/include --with-rpi-lib-path=/opt/vc/lib --enable-rpi
-# cec-client
-# make
-# make install
-# ldconfig
+# apt-get instal cec-utils
 ```
 7. Pianificare lo spegnimento
 --
