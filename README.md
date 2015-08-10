@@ -92,9 +92,23 @@ Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviament
 
 6. Spegnimento automatico
 ---
-Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root
+Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root.
+
+
 ```bash
 # apt-get instal cec-utils
+# apt-get instal cec-client		+# apt-get instal cec-utils
+
+# apt-get -y install udev libudev-dev autoconf automake libtool gcc liblockdev1		
+# Invece del git clone prendere questa versione : https://github.com/Pulse-Eight/libcec/tree/2a80b46be78e9d849de223ab73b6f3e7b4d9fc46	
+# cd libcec/		
+# ./bootstrap		
+# ./configure --with-rpi-include-path=/opt/vc/include --with-rpi-lib-path=/opt/vc/lib --enable-rpi		
+# cec-client		
+# make		
+# make install		
+# ldconfig
+
 ```
 7. Pianificare lo spegnimento
 --
