@@ -110,7 +110,7 @@ Per spegnere e riaccendere automaticamente il televisore occorre installare la l
 # ldconfig
 
 ```
-7. Pianificare lo spegnimento
+7. Pianificare lo spegnimento e la riaccensione del TV
 --
 Nel crontab dell'utente pi, incollare le seguenti righe:
 ```bash
