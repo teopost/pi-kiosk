@@ -117,10 +117,26 @@ Nel crontab dell'utente pi, incollare le seguenti righe:
 30  7 * * * /mnt/pi-kiosk/bin/turntv.sh on && sleep 3 && /mnt/pi-kiosk/bin/turntv.sh input
 ```
 
+In alternativa a cec-client si puo' usare tvservice (gia' installato nella rasp)
+
+```
+54 23 * * * /usr/bin/tvservice -o
+30  7 * * * /usr/bin/tvservice -p && sleep 3 && /usr/bin/xset dpms force on -display :0
+```
+
+e anche: 
+
+```
+54 23 * * * vcgencmd display_power 0
+30  7 * * * vcgencmd display_power 1
+```
+
 Riferimenti
 ---
 * http://raspberry-at-home.com/control-rpi-with-tv-remote/
 * http://raspberrypi.stackexchange.com/questions/8698/how-can-my-raspberry-pi-turn-on-off-my-samsung-tv
+* https://clevertap.com/blog/using-raspberry-pi-to-build-a-commercial-grade-wall-information-dashboard/
+
 
 ```bash
 # lista comandi
