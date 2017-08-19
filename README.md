@@ -17,7 +17,7 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 
 2. Preparare la Raspberry
 ---
-Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
+Installate l'ultima versione del sistema operativo raspbian (quella con meno fronzoli ovvero senza l'inerfaccia grafica). Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
 
 * Aprire una finestra terminal e da root inserire l'SD nel card reader del computer. Eseguire questo comando:
 ```bash
@@ -40,7 +40,7 @@ Installate l'ultima versione del sistema operativo raspbian. Ci sono centinaia d
 ---
 * Installare il programma di visualizzazione immagini
 ```bash
-$ sudo apt-get install feh unclutter
+$ sudo apt-get install -y feh unclutter git
 ```
 * Collegarsi in ssh sulla rasp e posizionarsi nell home
 ```bash
@@ -49,44 +49,38 @@ $ cd
 * Scaricare il software
 ```bash
 $ git clone https://github.com/teopost/pi-kiosk
+$ chmod 777 ./pi-kiosk/bin/*.sh
 ```
 3.5 Aggiornare il software
 
 ```bash
-$ sudo apt-get dist-upgrade
+$ sudo apt-get update
+$ sudo apt-get upgrade
 $ sudo rpi-update
-$ sudo apt-get remove mathematica* sonic-pi wolfram*
-$ rm python_games
-
+$ sudo apt-get install lxde-core xserver-xorg xinit
+$ reboot
 ```
 
 4. Configurare il software
 ---
 
-Rendere eseguibili gli script:
-
-```bash
-chmod 777 ./pi-kiosk/bin/*.sh
-```
-
 Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi. Quindi:
 
 ```bash
-sudo vi /etc/xdg/lxsession/LXDE-pi/autostart
+sudo vi /etc/xdg/lxsession/LXDE/autostart
 ```
 
 ```bash
-@lxpanel --profile LXDE-pi
-@pcmanfm --desktop --profile LXDE-pi
+@lxpanel --profile LXDE
+@pcmanfm --desktop --profile LXDE
 # @xscreensaver -no-splash           # <-- COMMENTARE
-@xset s off
-@xset -dpms
-@xset s noblank
 @/home/pi/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
 Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
-5. Installazione di btsync
+Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
+
+5. Installazione di btsync (OBSOLETO)
 ---
 Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviamente la versione per ARM.
 
@@ -96,15 +90,13 @@ Per spegnere e riaccendere automaticamente il televisore occorre installare la l
 
 
 ```bash
-# apt-get instal cec-utils
-# apt-get instal cec-client		+# apt-get instal cec-utils
+# sudo apt-get install -y cec-utils
 
-# apt-get -y install udev libudev-dev autoconf automake libtool gcc liblockdev1		
+# sudo apt-get -y install udev libudev-dev autoconf automake libtool gcc liblockdep-dev		
 # Invece del git clone prendere questa versione : https://github.com/Pulse-Eight/libcec/tree/2a80b46be78e9d849de223ab73b6f3e7b4d9fc46	
 # cd libcec/		
 # ./bootstrap		
-# ./configure --with-rpi-include-path=/opt/vc/include --with-rpi-lib-path=/opt/vc/lib --enable-rpi		
-# cec-client		
+# ./configure --with-rpi-include-path=/opt/vc/include --with-rpi-lib-path=/opt/vc/lib --enable-rpi				
 # make		
 # make install		
 # ldconfig
@@ -121,7 +113,7 @@ Nel crontab dell'utente pi, incollare le seguenti righe:
 # |  |  |  |  .---- [d]ay [o]f [w]eek: giorno della settimana (0 - 6) (domenica=0 o 7)  OPPURE sun,mon,tue,wed,thu,fri,sat
 # |  |  |  |  |
 
-54 23 * * * /mnt/pi-kiosk/bin/turntv.sh off
+54 23 * * * /home/pi//pi-kiosk/bin/turntv.sh off
 30  7 * * * /mnt/pi-kiosk/bin/turntv.sh on && sleep 3 && /mnt/pi-kiosk/bin/turntv.sh input
 ```
 
