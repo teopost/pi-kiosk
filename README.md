@@ -148,3 +148,12 @@ echo "as" | cec-client -s
 ```
 
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
+
+Alternative
+---
+Lista di alcune interessanti alternative (anche se nessuna fa al caso mio)
+
+* https://github.com/danthedeckie/streetsign
+* https://pisignage.com
+* https://www.screenly.io/ose/
+
