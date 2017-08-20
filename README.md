@@ -76,6 +76,13 @@ sudo vi /etc/xdg/lxsession/LXDE/autostart
 # @xscreensaver -no-splash           # <-- COMMENTARE
 @/home/pi/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
+Aggiungere in /etc/rc.local
+
+```
+# Disable console blanking
+setterm -blank 0 -powerdown 0 -powersave off
+```
+
 Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
 Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
