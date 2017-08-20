@@ -7,6 +7,7 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 
 1. Materiale occorrente
 ---
+
 * n.1 [Raspberry Pi](http://goo.gl/MybLy9)
 * n.1 [Case](http://goo.gl/Znz5zb)
 * n.1 [Scheda di memoria](http://goo.gl/3OPHrh)
@@ -17,6 +18,7 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 
 2. Preparare la Raspberry
 ---
+
 Installate l'ultima versione del sistema operativo raspbian (quella con meno fronzoli ovvero senza l'inerfaccia grafica). Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
 
 * Aprire una finestra terminal e da root inserire l'SD nel card reader del computer. Eseguire questo comando:
