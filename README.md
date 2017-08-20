@@ -83,6 +83,14 @@ Aggiungere in /etc/rc.local
 setterm -blank 0 -powerdown 0 -powersave off
 ```
 
+Eseguire vi /etc/lightdm/lightdm.conf
+
+```
+[Seat:*]
+...
+xserver-command=X -s 0 -dpms
+```
+
 Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in fondo per l'esecuzione automatica di pi-kiosk.
 
 Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
