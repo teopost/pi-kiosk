@@ -97,9 +97,29 @@ Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in f
 
 Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
 
-5. Installazione di btsync (OBSOLETO)
+5. Installazione di rclone (https://rclone.org/)
 ---
-Per sincronizzare le immagini installare [btsync](http://getsync.com). Ovviamente la versione per ARM.
+Per sincronizzare le immagini una valida soluzione è quella di usare Dropbox con file system condiviso.
+Peccato però che non esiste una versione per arm e quindi per Raspberry.
+Tuttavia esiste un tool chiamato rclone che consente di sincronizzare una cartella dropbox con una cartella locale.
+Per quello che devo fare io è più che sufficiente.
+I file vengono copiati da rclone solo se sono cambiati.
+Ottimo e molto meglio di una soluzione simile ma meno fine (dropbox_uploader).
+
+Si installa cosi https://rclone.org/install/
+
+Nota: per la creazione del token di dropbox, la procedura descritta non funziona.
+Limitarsi a creare una app da https://www.dropbox.com/developers e a generare un token.
+Poi incollarlo in un file chiamato /home/pi/.config/rclone/rclone.conf
+
+```
+[remote]
+type = dropbox
+app_key = 
+app_secret = 
+token = {"access_token":"<incolla qui il token>","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
+```
+
 
 6. Spegnimento automatico
 ---
