@@ -5,8 +5,7 @@ Pi-Kiosk prevede l'utilizzo di btsync per l'aggiornamento delle immagini. Grazie
 
 Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo standard cec dell'HDMI presente ormai in quasi tutti i televisori di ultima generazione.
 
-1. Materiale occorrente
----
+## 1. Materiale occorrente
 
 * n.1 [Raspberry Pi](http://goo.gl/MybLy9)
 * n.1 [Case](http://goo.gl/Znz5zb)
@@ -16,8 +15,7 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 * n.1 Cavo HDMI
 * n.1 Televisore con HDMI cec
 
-2. Preparare la Raspberry
----
+## 2. Preparare la Raspberry
 
 Installate l'ultima versione del sistema operativo raspbian (quella con meno fronzoli ovvero senza l'inerfaccia grafica). Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
 
@@ -38,8 +36,8 @@ Installate l'ultima versione del sistema operativo raspbian (quella con meno fro
 # sync
 ```
 
-3. Installare pi-kiosk
----
+## 3. Installare pi-kiosk
+
 * Installare il programma di visualizzazione immagini
 ```bash
 $ sudo apt-get install -y feh unclutter git
@@ -53,7 +51,7 @@ $ cd
 $ git clone https://github.com/teopost/pi-kiosk
 $ chmod 777 ./pi-kiosk/bin/*.sh
 ```
-3.5 Aggiornare il software
+## 4 Aggiornare il software
 
 ```bash
 $ sudo apt-get update
@@ -63,8 +61,8 @@ $ sudo apt-get install lxde-core xserver-xorg xinit
 $ reboot
 ```
 
-4. Configurare il software
----
+## 5. Configurare il software
+
 
 Per disabilitare lo screensaver editare il file autostart situato sotto /etc/xdg/lxsession/LXDE-pi. Quindi:
 
@@ -97,8 +95,8 @@ Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in f
 
 Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
 
-5. Installazione di rclone (https://rclone.org/)
----
+## 6. Installazione di rclone (https://rclone.org/)
+
 Per sincronizzare le immagini una valida soluzione è quella di usare Dropbox con file system condiviso.
 Peccato però che non esiste una versione per arm e quindi per Raspberry.
 Tuttavia esiste un tool chiamato rclone che consente di sincronizzare una cartella dropbox con una cartella locale.
@@ -121,8 +119,8 @@ token = {"access_token":"<incolla qui il token>","token_type":"bearer","expiry":
 ```
 
 
-6. Spegnimento automatico
----
+## 7. Spegnimento automatico
+
 Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root.
 
 
@@ -139,8 +137,9 @@ Per spegnere e riaccendere automaticamente il televisore occorre installare la l
 # ldconfig
 
 ```
-7. Pianificare lo spegnimento e la riaccensione del TV
---
+
+## 8. Pianificare lo spegnimento e la riaccensione del TV
+
 Nel crontab dell'utente pi, incollare le seguenti righe:
 ```bash
 # .---------------- [m]inute: minuto (0 - 59)
@@ -168,8 +167,8 @@ e anche:
 30  7 * * * vcgencmd display_power 1
 ```
 
-Riferimenti
----
+# Riferimenti
+
 * http://raspberry-at-home.com/control-rpi-with-tv-remote/
 * http://raspberrypi.stackexchange.com/questions/8698/how-can-my-raspberry-pi-turn-on-off-my-samsung-tv
 * https://clevertap.com/blog/using-raspberry-pi-to-build-a-commercial-grade-wall-information-dashboard/
@@ -186,8 +185,8 @@ echo "as" | cec-client -s
 
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
 
-Alternative
----
+# Alternative
+
 Lista di alcune interessanti alternative (anche se nessuna fa al caso mio)
 
 * https://github.com/danthedeckie/streetsign
