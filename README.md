@@ -1,7 +1,7 @@
 # Pi-Kiosk
 Pi-Kiosk è una soluzione basata su raspberry pi, che consente di eseguire lo slideshow di una cartella di immagini su un televisore.
 
-Pi-Kiosk prevede l'utilizzo di btsync per l'aggiornamento delle immagini. Grazie a btsync è possibile utilizzare un computer desktop o uno smartphone per tenere aggiornata la presentazione.
+Pi-Kiosk prevede l'utilizzo di un programma di sincronizzazione (es: btsync, syncthing, rclone) per l'aggiornamento delle immagini.
 
 Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo standard cec dell'HDMI presente ormai in quasi tutti i televisori di ultima generazione.
 
@@ -15,9 +15,12 @@ Pi-Kiosk spegne il televisore la sera e lo riaccende la mattina utilizzando lo s
 * n.1 Cavo HDMI
 * n.1 Televisore con HDMI cec
 
+> La raspberry PI 2 si scalda molto meno della PI 3 ed è meno noiosa per l'amperaggio dell'alimentatore.
+Dovendo predisporre un dispositivo che rimane acceso tutto il giorno, vi consiglio di utilizzare la PI 2 (tenete comunque presente che la PI 2 non ha la wifi integrata).
+
 ## 2. Preparare la Raspberry
 
-Installate l'ultima versione del sistema operativo raspbian (quella con meno fronzoli ovvero senza l'inerfaccia grafica). Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
+Installate l'ultima versione del sistema operativo raspbian (quella con meno fronzoli ovvero senza l'interfaccia grafica). Ci sono centinaia di guide su internet su come farlo. Se hai linux, ecco la centunesima:
 
 * Aprire una finestra terminal e da root inserire l'SD nel card reader del computer. Eseguire questo comando:
 ```bash
