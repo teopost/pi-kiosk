@@ -115,11 +115,19 @@ Si installa cosi https://rclone.org/install/
 Nota: per la creazione del token di dropbox, la procedura descritta non funziona.
 Siggerisco di operare come segue:
 
-* Creare una nuova app da https://www.dropbox.com/developers
-* Generare un token
-* Incollarlo in un nuovo file chiamato /home/pi/.config/rclone/rclone.conf
+1. Andare in https://www.dropbox.com/developers                        
+2. Cliccare sulla sinistra nella voce di menu "My apps"                        
+3. Cliccare il pulsante "Create app"                        
+4. Scegliere l'opzione "Dropbox API"                        
+5. Scegliere il tipo accesso "App folder"                        
+6. Mettere il nome dell'app, ovvero "pi-kiosk"                        
+7. Cliccare il pulsante in basso a destra "Create app"                        
+8. Nella pagina che compare cercare, verso meta', il pulsante "Generate"                        
+9. Dopo un po viene mostrato un codice tipo questo: Vr87Vl1sLIYAAAAAAAD4oLaW83GMnl6tlibGoOdw7jkBL5BODaVFzLhEIsFgj9AZ           10. Questo codice è il token che va messo nel file di configurazione nel passo successivo
 
-Il file deve avere un contenuto tipo questo:
+* Creare il file /home/pi/.config/rclone/rclone.conf
+
+Incollarci questo contenuto:
 
 ```
 [remote]
