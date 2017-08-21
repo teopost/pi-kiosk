@@ -128,9 +128,7 @@ Siggerisco di operare come segue:
 8. Nella pagina che compare cercare, verso meta', il pulsante "Generate"                        
 9. Dopo un po viene mostrato un codice tipo questo: Vr87Vl1sLIYAAAAAAAD4oLaW83GMnl6tlibGoOdw7jkBL5BODaVFzLhEIsFgj9AZ           10. Questo codice è il token che va messo nel file di configurazione nel passo successivo
 
-* Creare il file /home/pi/.config/rclone/rclone.conf
-
-Incollarci questo contenuto:
+Creare il file /home/pi/.config/rclone/rclone.conf e incollarci questo contenuto:
 
 ```
 [remote]
