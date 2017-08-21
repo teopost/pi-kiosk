@@ -102,20 +102,24 @@ Nel file, commentare la riga che contiene xscreensaver e aggiungere la riga in f
 
 Entrare nel tool raspi-config e impostare l'avvio in modalita' grafica con autologin
 
-## 6. Installazione di rclone (https://rclone.org/)
+## 6. Installazione di [rclone](https://rclone.org/)
 
-Per sincronizzare le immagini una valida soluzione è quella di usare Dropbox con file system condiviso.
-Peccato però che non esiste una versione per arm e quindi per Raspberry.
-Tuttavia esiste un tool chiamato rclone che consente di sincronizzare una cartella dropbox con una cartella locale.
-Per quello che devo fare io è più che sufficiente.
-I file vengono copiati da rclone solo se sono cambiati.
-Ottimo e molto meglio di una soluzione simile ma meno fine (dropbox_uploader).
+Per sincronizzare le immagini una valida soluzione è quella di usare Dropbox come file system condiviso, ma non esiste una versione per arm del client (e quindi per Raspberry).
+
+Esiste tuttavia un tool chiamato [rclone](https://rclone.org/) che consente di sincronizzare una cartella dropbox con una cartella locale.
+
+Per quello che devo fare io è l'asso di briscola perchè  i file vengono copiati da rclone solo se sono cambiati (dropbox_uploader non lo fa).
 
 Si installa cosi https://rclone.org/install/
 
 Nota: per la creazione del token di dropbox, la procedura descritta non funziona.
-Limitarsi a creare una app da https://www.dropbox.com/developers e a generare un token.
-Poi incollarlo in un file chiamato /home/pi/.config/rclone/rclone.conf
+Siggerisco di operare come segue:
+
+* Creare una nuova app da https://www.dropbox.com/developers
+* Generare un token
+* Incollarlo in un nuovo file chiamato /home/pi/.config/rclone/rclone.conf
+
+Il file deve avere un contenuto tipo questo:
 
 ```
 [remote]
@@ -125,11 +129,16 @@ app_secret =
 token = {"access_token":"<incolla qui il token>","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
 ```
 
+> Dove c'è scritto <incolla qui il token> incollare il token generato nella pagina di dropbox
+
 
 ## 7. Spegnimento automatico
 
-Per spegnere e riaccendere automaticamente il televisore occorre installare la libreria cec per raspberry. Operazione da fare come root.
+Per spegnere e riaccendere automaticamente il televisore ci sono varie possibilità
 
+1. Utilizzo di CEC-UTILITIES
+
+Installare la libreria cec per raspberry (operazione da fare come root), quindi:
 
 ```bash
 # sudo apt-get install -y cec-utils
@@ -145,9 +154,36 @@ Per spegnere e riaccendere automaticamente il televisore occorre installare la l
 
 ```
 
+Per provare a vedere se funziona eseguire i seguenti comandi:
+
+
+```bash
+# lista comandi
+echo h | cec-client -s -d 1
+
+# Attiva la porta cec come attiva
+echo "as" | cec-client -s
+
+```
+
+2. Utilizzo di tvservice
+
+In alternativa a cec-client si puo' usare tvservice (gia' installato nella rasp).
+
+* /usr/bin/tvservice -o (per spegnere il televisore
+* /usr/bin/tvservice -p (per accendere il televisore)
+
+3. Utilizzo di vcgencmd
+
+* vcgencmd display_power 0 (per spegnere il televisore)
+* vcgencmd display_power 1 (per accendere il televisore)
+
 ## 8. Pianificare lo spegnimento e la riaccensione del TV
 
-Nel crontab dell'utente pi, incollare le seguenti righe:
+Per pianificare lo spegnimento del televisore, nel crontab dell'utente pi, incollare le seguenti righe:
+
+1. Con cec-client
+
 ```bash
 # .---------------- [m]inute: minuto (0 - 59)
 # |  .------------- [h]our: ora (0 - 23)
@@ -160,43 +196,33 @@ Nel crontab dell'utente pi, incollare le seguenti righe:
 30  7 * * * /mnt/pi-kiosk/bin/turntv.sh on && sleep 3 && /mnt/pi-kiosk/bin/turntv.sh input
 ```
 
-In alternativa a cec-client si puo' usare tvservice (gia' installato nella rasp)
+2. Con tvservice
 
 ```
 54 23 * * * /usr/bin/tvservice -o
 30  7 * * * /usr/bin/tvservice -p && sleep 3 && /usr/bin/xset dpms force on -display :0
 ```
 
-e anche: 
+3. Con vcgencmd
 
 ```
 54 23 * * * vcgencmd display_power 0
 30  7 * * * vcgencmd display_power 1
 ```
 
+# Non solo pi-kiosk
+
+Prima di mettermi a fare pi-kiosk ho cercato una soluzione già pronta.
+Riporto una lista di alcune interessanti alternative (anche se nessuna di queste fa al caso mio)
+
+* https://github.com/danthedeckie/streetsign
+* https://pisignage.com
+* https://www.screenly.io/ose/
+
 # Riferimenti
 
 * http://raspberry-at-home.com/control-rpi-with-tv-remote/
 * http://raspberrypi.stackexchange.com/questions/8698/how-can-my-raspberry-pi-turn-on-off-my-samsung-tv
 * https://clevertap.com/blog/using-raspberry-pi-to-build-a-commercial-grade-wall-information-dashboard/
-
-
-```bash
-# lista comandi
-echo h | cec-client -s -d 1
-
-# Attiva la porta cec come attiva
-echo "as" | cec-client -s
-
-```
-
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
-
-# Alternative
-
-Lista di alcune interessanti alternative (anche se nessuna fa al caso mio)
-
-* https://github.com/danthedeckie/streetsign
-* https://pisignage.com
-* https://www.screenly.io/ose/
 
