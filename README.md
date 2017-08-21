@@ -132,7 +132,7 @@ token = {"access_token":"<incolla qui il token>","token_type":"bearer","expiry":
 > Dove c'è scritto <incolla qui il token> incollare il token generato nella pagina di dropbox
 
 
-## 7. Spegnimento automatico
+## 7. Spegnimento automatico (crontab)
 
 Per spegnere e riaccendere automaticamente il televisore ci sono varie possibilità
 
@@ -155,7 +155,6 @@ Installare la libreria cec per raspberry (operazione da fare come root), quindi:
 ```
 
 Per provare a vedere se funziona eseguire i seguenti comandi:
-
 
 ```bash
 # lista comandi
