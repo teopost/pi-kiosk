@@ -39,18 +39,24 @@ Installate l'ultima versione del sistema operativo raspbian (quella con meno fro
 ## 3. Installare pi-kiosk
 
 * Installare il programma di visualizzazione immagini
+
 ```bash
 $ sudo apt-get install -y feh unclutter git
 ```
-* Collegarsi in ssh sulla rasp e posizionarsi nell home
+
+* Collegarsi in ssh sulla rasp e posizionarsi nella home
+
 ```bash
 $ cd
 ```
+
 * Scaricare il software
+
 ```bash
 $ git clone https://github.com/teopost/pi-kiosk
 $ chmod 777 ./pi-kiosk/bin/*.sh
 ```
+
 ## 4 Aggiornare il software
 
 ```bash
@@ -76,6 +82,7 @@ sudo vi /etc/xdg/lxsession/LXDE/autostart
 # @xscreensaver -no-splash           # <-- COMMENTARE
 @/home/pi/pi-kiosk/bin/slideshow.sh      # <-- AGGIUNGERE
 ```
+
 Aggiungere in /etc/rc.local
 
 ```
