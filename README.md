@@ -235,4 +235,5 @@ Riporto una lista di alcune interessanti alternative (anche se nessuna di queste
 * https://clevertap.com/blog/using-raspberry-pi-to-build-a-commercial-grade-wall-information-dashboard/
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
 * https://github.com/jasbur/RaspiWiFi
+* https://github.com/brendan-myers/rpi3-wifi-conf-android, https://github.com/brendan-myers/rpi3-wifi-conf
 
