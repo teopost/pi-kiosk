@@ -226,6 +226,7 @@ Riporto una lista di alcune interessanti alternative (anche se nessuna di queste
 * https://github.com/danthedeckie/streetsign
 * https://pisignage.com
 * https://www.screenly.io/ose/
+* https://github.com/eerotal/LibreSignage
 
 # Riferimenti
 
@@ -233,4 +234,5 @@ Riporto una lista di alcune interessanti alternative (anche se nessuna di queste
 * http://raspberrypi.stackexchange.com/questions/8698/how-can-my-raspberry-pi-turn-on-off-my-samsung-tv
 * https://clevertap.com/blog/using-raspberry-pi-to-build-a-commercial-grade-wall-information-dashboard/
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
+* https://github.com/jasbur/RaspiWiFi
 
