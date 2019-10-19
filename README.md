@@ -227,6 +227,10 @@ Riporto una lista di alcune interessanti alternative (anche se nessuna di queste
 * https://pisignage.com
 * https://www.screenly.io/ose/
 * https://github.com/eerotal/LibreSignage
+* https://pipresents.wordpress.com/
+* https://foyer.tv/
+* https://www.binaryemotions.com/raspberry-slideshow-download/
+
 
 # Riferimenti
 
@@ -236,4 +240,5 @@ Riporto una lista di alcune interessanti alternative (anche se nessuna di queste
 * http://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
 * https://github.com/jasbur/RaspiWiFi
 * https://github.com/brendan-myers/rpi3-wifi-conf-android, https://github.com/brendan-myers/rpi3-wifi-conf
+* https://www.makeuseof.com/tag/raspberry-pi-digital-signage-projects/
 
